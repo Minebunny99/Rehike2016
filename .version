@@ -1,10 +1,10 @@
 {
-	"previousHash": "cdabdd0d951ef3df06905172777efbc1bb34c1d6",
-	"currentRevisionId": 781,
-	"subject": "Backport channel link fix from 0.7 (Fix #257)",
-	"body": "Backport channel link fix from 0.7 (Fix #257)",
+	"previousHash": "26131b5933e0dd95fba7d37fae30eaf4d4ebad64",
+	"currentRevisionId": 803,
+	"subject": "Update version.php",
+	"body": "Update version.php",
 	"branch": "master",
-	"committerName": "aubymori",
-	"committerEmail": "aubyomori@gmail.com",
-	"time": 1677213579
+	"committerName": "GitHub",
+	"committerEmail": "noreply@github.com",
+	"time": 1678465162
 }
