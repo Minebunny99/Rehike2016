@@ -17,19 +17,21 @@ class RehikeConfigManager extends ConfigManager
     public static $defaultConfig =
     [
         "appearance" => [
-            "modernLogo" => true,
-            "uploadButtonType" => "MENU",
-            "largeSearchResults" => true,
+            "modernLogo" => false,
+            "uploadButtonType" => "BUTTON",
+            "largeSearchResults" => false,
             "showVersionInFooter" => true,
             "usernamePrepends" => false,
             "useRyd" => true,
             "noViewsText" => false,
-            "movingThumbnails" => true,
+            "movingThumbnails" => false,
             "cssFixes" => true,
             "watchSidebarDates" => false,
             "watchSidebarVerification" => false,
             "teaserReplies" => false,
-            "oldBestOfYouTubeIcons" => false
+            "oldBestOfYouTubeIcons" => false,
+			"oldRoboto" => true,
+			"redButton" => false
         ],
         "advanced" => [
             "enableDebugger" => false
@@ -54,7 +56,9 @@ class RehikeConfigManager extends ConfigManager
             "watchSidebarDates" => "bool",
             "watchSidebarVerification" => "bool",
             "teaserReplies" => "bool",
-            "oldBestOfYouTubeIcons" => "bool"
+            "oldBestOfYouTubeIcons" => "bool",
+			"oldRoboto" => "bool",
+			"redButton" => "bool"
         ],
         "advanced" => [
             "enableDebugger" => "bool"
