@@ -84,11 +84,11 @@
                 {%- if yt.config.appearance.watchSidebarDates and info.publishedTimeText -%}
                 <span class="published-time">{{ getText(info.publishedTimeText) }}</span>
                 {%- endif -%}
-            </span>
-            {% endif %}
+			{% endif %}
             {% if info.badges %}
             {{ badge_list(info.badges) }}
             {% endif %}
+            </span>
         </a>
     </div>
     <div class="thumb-wrapper">
