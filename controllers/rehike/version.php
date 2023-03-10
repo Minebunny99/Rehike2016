@@ -137,7 +137,7 @@ class RemoteGit
 
 class GetVersionController extends HitchhikerController
 {
-    public const GH_REPO = "Rehike/Rehike";
+    public const GH_REPO = "Minebunny99/Rehike2016";
     public const GH_ENABLED = true;
 
     public const GH_API_COMMITS = "https://api.github.com/repos/" . self::GH_REPO . "/commits?sha="; // sha= + branch
