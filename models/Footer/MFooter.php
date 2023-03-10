@@ -86,6 +86,9 @@ class MFooter {
             "/new"
         );
         $this->copyright = $i18n->secondaryCopyright(date("Y"));
+		$this->buttons[] = new MPickerLanguageButton();
+		$this->buttons[] = new MPickerCountryButton();
+		$this->buttons[] = new MPickerSafetyButton();
         $this->buttons[] = new MHistoryButton();
         $this->buttons[] = new MHelpButton();
     }
@@ -161,6 +164,58 @@ class MHelpButton extends MButton {
 }
 
 class MPickerLanguageButton extends MButton {
-    public $targetId = "yt-picker-language-button";
+    public $class = [
+        "yt-picker-language-button",
+		"footer-history"
+    ];
+	
     public $hasArrow = true;
+	
+    public function __construct() {
+        $i18n = i18n::getNamespace("footer");
+
+        $this->icon = (object) [
+            "iconType" => "footer-language"
+        ];
+        $this->text = (object) [
+            "simpleText" => $i18n->pickerLanguage
+        ];
+		
+    }
+}
+
+class MPickerCountryButton extends MButton {
+    public $class = [
+        "yt-picker-country-button",
+		"footer-history"
+    ];
+	
+    public $hasArrow = true;
+	
+    public function __construct() {
+        $i18n = i18n::getNamespace("footer");
+
+        $this->text = (object) [
+            "simpleText" => $i18n->pickerLocation
+        ];
+		
+    }
+}
+
+class MPickerSafetyButton extends MButton {
+    public $class = [
+        "yt-picker-safety-button",
+		"footer-history"
+    ];
+	
+    public $hasArrow = true;
+	
+    public function __construct() {
+        $i18n = i18n::getNamespace("footer");
+
+        $this->text = (object) [
+            "simpleText" => $i18n->pickerSafety
+        ];
+		
+    }
 }
