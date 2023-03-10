@@ -26,6 +26,8 @@ We currently do not support an automated install. If you wish to use Rehike, you
 
 [See this page for manual installation instructions.](//github.com/Rehike/Rehike/wiki/Installation)
 
+## Custom Theme
+To make it more like 2016 style get theme here -> https://userstyles.world/style/8225/youtube-early-2015-to-mid-2016
 ## Configuration
 
 [See this page for configuration details.](//github.com/Rehike/Rehike/wiki/Configuration)
