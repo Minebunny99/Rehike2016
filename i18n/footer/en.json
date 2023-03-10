@@ -1,8 +1,8 @@
 {
     "logoTooltip": "YouTube home",
-    "pickerLanguage": "Language: %s",
-    "pickerLocation": "Location: %s",
-    "pickerSafety": "Restricted Mode: %s",
+    "pickerLanguage": "Language: English",
+    "pickerLocation": "Location: Worldwide",
+    "pickerSafety": "Restricted Mode: Off",
     "safetyOn": "On",
     "safetyOff": "Off",
     "buttonHistory": "History",
