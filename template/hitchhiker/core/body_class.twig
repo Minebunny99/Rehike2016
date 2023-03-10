@@ -14,9 +14,11 @@ site-center-aligned
 site-as-giant-card 
 {{ (appbarEnabled and defaultGuideVisibility) ? 'guide-pinning-enabled' }}   
 {{ (appbarEnabled and not defaultAppbarVisibility) ? 'appbar-hidden' }}
-not-nirvana-dogfood    
-flex-width-enabled      
-{{ flexWidthSnapDisabled ? '' : "flex-width-enabled-snap" }}    
+not-nirvana-dogfood  
+not-yt-legacy-css
+{{ yt.masthead.searchbox.query ? '' : "flex-width-enabled" }}   
+{{ flexWidthSnapDisabled ? '' : "flex-width-enabled-snap" }}   
 {{ yt.spf ? '' : 'delayed-frame-styles-not-in' }}
 {{ yt.page.ticker ? "sitewide-ticker-visible" }}
 {{ yt.signin.isSignedIn ? "yt-user-logged-in" }}
+page-loaded
