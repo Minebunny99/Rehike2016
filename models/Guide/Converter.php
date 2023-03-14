@@ -68,7 +68,9 @@ class Converter
             }
         }
 
+        if (ConfigManager::getConfigProp("appearance.redButton")) {
         $response[] = self::getEndSection2($data, $signedIn);
+        }
 
         return $response;
     }
