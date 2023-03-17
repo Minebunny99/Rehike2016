@@ -1,18 +1,22 @@
 <?php
 use Rehike\ControllerV2\Router;
 use Rehike\SimpleFunnel;
+use Rehike\ConfigManager\ConfigManager;
 
 if (isset($_GET["enable_polymer"]) && $_GET["enable_polymer"] == "1") {
     SimpleFunnel::funnelCurrentPage(true);
 }
-
+if (ConfigManager::getConfigProp("appearance.modernLogo")) {
+	Router::funnel([
+    "/favicon.ico"
+	]);
+}
 Router::funnel([
     "/api/*",
     "/youtubei/*",
     "/s/*",
     "/embed/*",
     "/yts/*",
-    "/favicon.ico",
     "/subscribe_embed",
     "/login",
     "/logout",
@@ -57,6 +61,7 @@ Router::redirect([
     "/feed/library" => "/profile",
     "/subscription_manager" => "/feed/channels",
     "/rehike/settings" => "/rehike/config",
+    "/favicon.ico" => "/yts/img/favicon_32-vfl8NGn4k.png",
     "/subscription_center?(*)" => function($request) {
         if ($user = @$request->params->add_user)
             return "/user/$user?sub_confirmation=1";

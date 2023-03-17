@@ -1,10 +1,10 @@
 {
-	"previousHash": "9b590a99a562217e93dcd7edc6ad514743c6d14f",
-	"currentRevisionId": 808,
-	"subject": "fixed a error on a guide",
-	"body": "fixed a error on a guide",
+	"previousHash": "28ad1e451c72d354bbf698138275598035413b38",
+	"currentRevisionId": 809,
+	"subject": "fix favicon.ico if ringo not being used on",
+	"body": "fix favicon.ico if ringo not being used on",
 	"branch": "master",
 	"committerName": "Minebunny99",
 	"committerEmail": "Minebunny99@users.noreply.github.com",
-	"time": 1678816036
+	"time": 1679037622
 }
