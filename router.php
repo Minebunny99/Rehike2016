@@ -6,11 +6,13 @@ use Rehike\ConfigManager\ConfigManager;
 if (isset($_GET["enable_polymer"]) && $_GET["enable_polymer"] == "1") {
     SimpleFunnel::funnelCurrentPage(true);
 }
+
 if (ConfigManager::getConfigProp("appearance.modernLogo")) {
 	Router::funnel([
     "/favicon.ico"
 	]);
 }
+
 Router::funnel([
     "/api/*",
     "/youtubei/*",
