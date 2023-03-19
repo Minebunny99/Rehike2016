@@ -22,3 +22,6 @@ not-yt-legacy-css
 {{ yt.page.ticker ? "sitewide-ticker-visible" }}
 {{ yt.signin.isSignedIn ? "yt-user-logged-in" }}
 page-loaded
+{% if yt.config.appearance.expsearchboxredesign %}
+exp-searchbox-redesign
+{% endif %}

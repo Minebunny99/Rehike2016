@@ -29,9 +29,10 @@ class RehikeConfigManager extends ConfigManager
             "watchSidebarDates" => false,
             "watchSidebarVerification" => false,
             "teaserReplies" => false,
-            "oldBestOfYouTubeIcons" => false,
+            "oldBestOfYouTubeIcons" => true,
 			"oldRoboto" => true,
-			"redButton" => false
+			"redButton" => true,
+			"expsearchboxredesign" => false
         ],
         "advanced" => [
             "enableDebugger" => false
@@ -58,7 +59,8 @@ class RehikeConfigManager extends ConfigManager
             "teaserReplies" => "bool",
             "oldBestOfYouTubeIcons" => "bool",
 			"oldRoboto" => "bool",
-			"redButton" => "bool"
+			"redButton" => "bool",
+			"expsearchboxredesign" => "bool"
         ],
         "advanced" => [
             "enableDebugger" => "bool"

@@ -69,6 +69,10 @@
                 "title": "Youtube red Button",
 				"subtitle": "Used 2016 and Later"
             },
+			"expsearchboxredesign": {
+                "title": "Experiment Search box Redesign",
+				"subtitle": "Used 2016 only"
+            },
             "oldBestOfYouTubeIcons": {
                 "title": "Old red icons in \"Best of YouTube\" guide section",
                 "subtitle": "Show the old red topic channel icons, rather than the black ones used today."
