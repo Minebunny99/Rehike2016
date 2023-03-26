@@ -1,7 +1,6 @@
 <?php
 use \Rehike\Controller\core\AjaxController;
-use \Rehike\Network;
-use \Rehike\Async\Promise;
+use \Rehike\Request;
 use \Rehike\Model\Common\Subscription\MSubscriptionPreferencesOverlay;
 
 /**
@@ -15,33 +14,31 @@ use \Rehike\Model\Common\Subscription\MSubscriptionPreferencesOverlay;
  * @author The Rehike Maintainers
  */
 return new class extends AjaxController {
-    // These are used by the preferences overlay response.
     public $useTemplate = false;
-    public $template = "";
+    public $template = "ajax/subscription/get_subscription_preferences_overlay";
+
+    public $ytdata;
 
     public function onPost(&$yt, $request) {
         $action = self::findAction();
 
         switch ($action) {
             case "create_subscription_to_channel":
-                $request = self::createSubscriptionToChannel();
+                $ytdata = self::createSubscriptionToChannel();
                 break;
             case "remove_subscriptions":
-                $request = self::removeSubscriptions();
+                $ytdata = self::removeSubscriptions();
                 break;
             case "get_subscription_preferences_overlay":
                 $this->useTemplate = true;
-                $this->template = 
-                    "ajax/subscription/get_subscription_preference_overlay"
-                ;
-                self::getPreferencesOverlay($yt, $request);
-                return; // This takes control of everything from here.
+                self::getSubscriptionPreferencesOverlay($yt, $request);
+                break;
             default:
                 self::error();
                 break;
         }
 
-        $request->then(function ($ytdata) {
+        if (!$this->useTemplate) {
             if (is_null($ytdata)) self::error();
 
             if (!isset($ytdata->error)) {
@@ -50,7 +47,7 @@ return new class extends AjaxController {
                     "response" => "SUCCESS"
                 ]);
             } else self::error();
-        });
+        }
     }
 
     /**
@@ -102,31 +99,16 @@ return new class extends AjaxController {
      * @param object           $yt       Template data.
      * @param RequestMetadata  $request  Request data.
      */
-    private static function getPreferencesOverlay(&$yt, 
-                                                  $request): void {
-        Network::innertubeRequest(
-            action: "browse",
-            body: [
-                "browseId" => $_POST["c"] ?? ""
-            ]
-        )->then(function ($response) use ($yt) {
-            $ytdata = $response->getJson();
-            $header = $ytdata->header->c4TabbedHeaderRenderer ?? null;
-            $yt->page = new MSubscriptionPreferencesOverlay([
-                "title" => $header->title ?? "",
-                "options" => ($header 
-                    ->subscribeButton 
-                    ->subscribeButtonRenderer 
-                    ->notificationPreferenceButton 
-                    ->subscriptionNotificationToggleButtonRenderer 
-                    ->command 
-                    ->commandExecutorCommand 
-                    ->commands[0] 
-                    ->openPopupAction 
-                    ->popup 
-                    ->menuPopupRenderer 
-                    ->items) ?? []
-            ]);
-        });
+    private static function getSubscriptionPreferencesOverlay(&$yt, $request) {
+        $response = Request::innertubeRequest("browse", (object) [
+            "browseId" => $_POST["c"] ?? ""
+        ]);
+        $ytdata = json_decode($response);
+        $header = $ytdata->header->c4TabbedHeaderRenderer ?? null;
+        $yt->page = new MSubscriptionPreferencesOverlay([
+            "title" => $header->title ?? "",
+            // Make sure to turn on word wrap @_@
+            "options" => $header->subscribeButton->subscribeButtonRenderer->notificationPreferenceButton->subscriptionNotificationToggleButtonRenderer->command->commandExecutorCommand->commands[0]->openPopupAction->popup->menuPopupRenderer->items ?? []
+        ]);
     }
 };
